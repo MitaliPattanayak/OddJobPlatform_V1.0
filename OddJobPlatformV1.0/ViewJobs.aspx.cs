@@ -23,8 +23,8 @@ namespace OddJobPlatformV1._0
         }
     public void GetAllJobs()
     {
-            BusinessComponents.CreateJob obj = new BusinessComponents.CreateJob();
-           DataTable dt = obj.ViewAllJobs();
+            JobSeeker objJs = new JobSeeker();
+            DataTable dt = objJs.ViewAllJobs();
             grdJobs.DataSource = dt;
             grdJobs.DataBind();
     }

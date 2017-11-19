@@ -2,13 +2,14 @@
 using DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessComponents
 {
-    class JobSeeker: IJobSeeker
+  public class JobSeeker: IJobSeeker
     {
         public int jsId { get; set; }
         public string userName { get; set; }
@@ -20,5 +21,13 @@ namespace BusinessComponents
         public string resume { get; set; }
         public string gender { get; set; }
         public int contactNum { get; set; }
+
+        public DataTable ViewAllJobs()
+        {
+            Job objJob = new Job();
+            DataTable dt = objJob.ViewJobs();
+            return dt;
+        }
     }
+
 }

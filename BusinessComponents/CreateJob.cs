@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using BusinessInterfaces;
 using DataAccessLayer;
 using System.Data;
-using System.Text.RegularExpressions;
 
 namespace BusinessComponents
 {
@@ -26,42 +25,6 @@ namespace BusinessComponents
             Job objJob = new Job();
             objJob.createNewJob(obj);
             return true;
-        }
-
-        public bool checkRequiredFields(CreateJob job)
-        {
-            if (String.IsNullOrEmpty(this.jobName) || String.IsNullOrEmpty(this.jobType) || String.IsNullOrEmpty(this.contactEmail) || String.IsNullOrEmpty(this.contactNum))
-            return false;
-            else
-            return true;
-        }
-
-        public bool emailIsValid(string email)
-        {
-            string expresion;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, string.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public DataTable ViewAllJobs()
-        {
-           Job objJob = new Job();
-           DataTable dt = objJob.ViewJobs();
-           return dt;
-        }
+        }        
     }
 }

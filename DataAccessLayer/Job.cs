@@ -34,7 +34,7 @@ namespace DataAccessLayer
             return true;
         }
 
-        public DataTable ViewJobs()
+        public System.Data.DataTable ViewJobs()
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("uspViewJobs", con);
